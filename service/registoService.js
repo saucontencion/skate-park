@@ -1,8 +1,8 @@
-const { Skater } = require("../models/skater");
+const Skater = require("../models/skater");
 
-async function registro (N,E,F){
-console.log(N,E,F);
- const skater = await Skater.create({N,E,F})
-
+async function registro (nombre,email,password,anos_experiencia, especialidad,foto,estado){
+console.log(nombre,email,password,anos_experiencia, especialidad,foto,estado);
+/*  const skater = await Skater.create({nombre,email,password,anos_experiencia, especialidad,foto,estado})
+ */
 }
 module.exports = {registro}

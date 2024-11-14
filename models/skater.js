@@ -40,13 +40,5 @@ const Skater = sequelize.define(
   }
 );
 
-// Synchronize the model with the database
-Skater.sync({ force: false })  // Use force: true to drop and recreate the table
-  .then(() => {
-    console.log("Skater table has been created or already exists.");
-  })
-  .catch((error) => {
-    console.error("Error synchronizing Skater table:", error);
-  });
-
-module.exports = { Skater };
+module.exports = Skater;
+/* Skater.sync() */
