@@ -1,7 +1,8 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../connection/connection");
 
-const Skater = sequelize.define('Skater', {
+const Skater = sequelize.define(
+    'Skater', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -35,4 +36,7 @@ const Skater = sequelize.define('Skater', {
         type: DataTypes.BOOLEAN,
         allowNull: false,
     },
-})
+}
+)
+
+module.exports = {Skater}
