@@ -1,5 +1,5 @@
-function registro (N,E){
-console.log(N,E);
+function registro (N,E,F){
+console.log(N,E,F);
 
 }
 module.exports = {registro}
