@@ -21,7 +21,7 @@ class Server {
         }));
     }
     routes() {
-        this.app.use('/nada', require('../routes/lodemas'));
+        this.app.use('/', require('../routes/lodemas'));
     }
     listen(){
         this.app.listen(this.port, ()=>{
