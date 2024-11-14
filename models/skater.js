@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../connection/connection");  // Assuming you have this Sequelize connection
 
 const Skater = sequelize.define(
-  'Skater',
+  'skater',
   {
     id: {
       type: DataTypes.INTEGER,
