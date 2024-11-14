@@ -37,7 +37,10 @@ const Skater = sequelize.define(
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-  }
+  }, {
+/*     tableName: 'skaters',
+ */    timestamps: false
+}
 );
 
 module.exports = Skater;
