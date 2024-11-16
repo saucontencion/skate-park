@@ -17,7 +17,7 @@ const postregistroController = (req,res)=>{
     //opcion 2
     fotofile.mv(`${path.join(__dirname,`../public/img/imagen-${id}.jpg`)}`, (err) => {  if (err) {
         console.log(err);
-        res.sendFile(path.resolve(__dirname, '../views/registro.html'))}
+        res.redirect('/registro.html')}
     });
     const estado = 'true';// este nose de donde veria salir deberia ser activo hasta que se de de baja la cuenta
     const {nombre,email,password,anos_experiencia, especialidad} = req.body;
