@@ -13,5 +13,4 @@ async function findAll() {
     console.trace()
 }
 
-findAll()
 module.exports = {registro, findAll}

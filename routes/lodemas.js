@@ -3,8 +3,10 @@ const { getregistroController , postregistroController } = require('../controlle
 const { getAdminController } = require('../controller/adminController');
 const { getLoginController } = require('../controller/loginController');
 const { getDatosController } = require('../controller/datosController');
+const { skatersController } = require('../controller/skatersController');
 
 const router = Router();
+router.get('/', skatersController)
 router.get('/registro', getregistroController );
 router.post('/registro', postregistroController );
 

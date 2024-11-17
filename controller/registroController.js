@@ -7,7 +7,7 @@ console.log(id);
 
 const getregistroController = (req,res)=>{
     const loQueNececito = findAll()
-    res.sendFile(path.resolve(__dirname, '../views/registro.html'))
+    res.render('index')
 }
 const postregistroController = (req,res)=>{
     const fotofile  = req.files.nameFoto;
