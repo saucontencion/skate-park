@@ -1,3 +1,4 @@
+const path = require('path');
 const { request, response } = require("express");
 
 const getAdminController = (req,res)=>{

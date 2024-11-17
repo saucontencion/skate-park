@@ -1,3 +1,5 @@
+const path = require('path');
+
 const {response, request} = require('express');
 
 const getDatosController = (req,res)=>{

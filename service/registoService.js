@@ -4,4 +4,14 @@ async function registro (nombre,email,password,anos_experiencia, especialidad,es
  const skater = await Skater.create({nombre,email,password,anos_experiencia, especialidad,estado,foto})
 
 }
-module.exports = {registro}
+
+async function findAll() {
+    const todes = await Skater.findAll()
+    const todesmap = todes.map(usuario => usuario.toJSON());
+    const todeslength = todes.length
+    return [todesmap, todeslength]
+    console.trace()
+}
+
+findAll()
+module.exports = {registro, findAll}
