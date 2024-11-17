@@ -8,7 +8,9 @@ colocar los name en los input en el form. verificar la creacion
 [x] ver la diferencia entre redirect y render y sendfile <!-- si tengo middlewares lo mejor es usar redirect, render es para vistas, sendfile enviar el archivo directamente y es menos escalable , ya que tendria 2 instancias -->
 [x] add info base a la database y foto la direccion a la img
 [x] registrarme y e iniciar sesion colocar direccionamiento
-[] pasar registro a hbs, esta ya todo funcionando 
+[x] pasar registro a hbs, esta ya todo funcionando
+[]_[x] ya habiendo una conexio completa hacer todo por capaz , estandarizar y bien hechas 
+[]ir a por login
 
 [] consumiendo ese findall
 
