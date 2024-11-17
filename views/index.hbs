@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    {{head}}
+    {{>head}}
 <body>
     <h1>Skate Park</h1>
 
@@ -21,31 +21,17 @@
           </tr>
         </thead>
         <tbody>     
+         {{#each todesmap}}
+            <tr>
+                <th scope="row">{{@index}}</th>
+                <td><div style="background-image:url('{{foto}}') ;"></div></td>
+                <td>{{nombre}} </td>
+                <td>{{anos_experiencia}} </td>
+                <td>{{especialidad}} </td>
+                <td class="text-success font-weight-bold">{{estado}} </td>
+            </tr>
+         {{/each}}
 
-          <tr>
-            <th scope="row">1</th>
-            <td><div style="background-image:url('img/tony.jpg') ;"></div></td>
-            <td>Tony Hawk</td>
-            <td>12</td>
-            <td>Kickflip</td>
-            <td class="text-success font-weight-bold">Aprobado</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td><div style="background-image: url('img/Evelien.jpg');"></div></td>
-            <td>Evelien Bouilliart</td>
-            <td>10</td>
-            <td>Heelflip</td>
-            <td class="text-success font-weight-bold">Aprobado</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td><div style="background-image: url('img/Danny.jpg');"></div></td>
-            <td>Danny Way</td>
-            <td>8</td>
-            <td>Ollie</td>
-            <td class="text-warning font-weight-bold">En revisión</td>
-          </tr>
         </tbody>
       </table>
       <a href="/login">Iniciar Sesión</a> |

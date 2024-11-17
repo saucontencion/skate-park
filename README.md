@@ -18,6 +18,3 @@ _[x]para el th #, no me pide guardar la poscion y no puedo darle por el id, ya q
 [] despues como eliminar quizas?
 [x] registrarme y e iniciar sesion colocar direccionamiento
 
-** el static esta mostrando el index de public, tengo que sincronizarlo con el index de hbs y tengo tenfo el index de hbs mostrandose en registro**
-** public me parece que dejaria de ser public ahora y pasaria a ser utils?**
-** no esta funcionando el index.hbs y la ruta nose si esta bien configurada

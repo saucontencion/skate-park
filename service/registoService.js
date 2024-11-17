@@ -9,7 +9,7 @@ async function findAll() {
     const todes = await Skater.findAll()
     const todesmap = todes.map(usuario => usuario.toJSON());
     const todeslength = todes.length
-    return [todesmap, todeslength]
+    return {todesmap, todeslength}
     console.trace()
 }
 

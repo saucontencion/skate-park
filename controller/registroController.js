@@ -1,13 +1,11 @@
-const { request, response } = require("express");
 const path = require('path');
 const { registro, findAll } = require("../service/registoService");
 const  {v4}  = require('uuid');
 const id = v4();
-console.log(id);
 
 const getregistroController = (req,res)=>{
     const loQueNececito = findAll()
-    res.render('index')
+    res.sendFile(path.resolve(__dirname, '../views/registro.html'))
 }
 const postregistroController = (req,res)=>{
     const fotofile  = req.files.nameFoto;
