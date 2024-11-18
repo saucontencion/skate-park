@@ -11,7 +11,9 @@ colocar los name en los input en el form. verificar la creacion
 [x] pasar registro a hbs, esta ya todo funcionando
 []_[x] ya habiendo una conexio completa hacer todo por capaz , estandarizar y bien hechas 
 []ir a por login
-
+[]viendo lo de actualizaciones y permiso para el futuro 
+ **estoy desordenandome con las capas futuras, y las comprobaciones**
+[] darle a la ccapa funcional actual no mas, por mientras
 [] consumiendo ese findall
 
 [] despues como eliminar quizas?

@@ -1,35 +1,37 @@
 function errorHandler(error) {
-    if (error.message) {
-        console.log(error.message);
-        return {
-            msg:`hubo un error estandar de: ${error.message}`,
-            status:500,
-            data:[] 
-        }
-        if (error) {
+    if (error) {  // Primero verificamos si el error existe
+        if (error.message) {  // Si tiene la propiedad 'message', es un error estándar
+            console.error(error.message);
             return {
-                msg:`hubo un error atipico de: ${error}`,
-                status:500,
+                msg: `Hubo un error estándar en el servidor: ${error.message}`,
+                status: 500,
+                data: []
+            };
+        } else if (error.status == 401) {
+            return {
+                msg: error,
+                status: 401,
                 data:[]
             }
-        } else {
-            console.log('El objeto error no existe');  
+        } else  {  // Si no tiene la propiedad 'message', es un error particular (sin 'message')
+            console.error(`log Hubo un error particular en el servidor: ${JSON.stringify(error)}`);
             return {
-                msg:'El objeto error no existe',
-                status:500,
-                data:[]
-            }
+                msg: `Hubo un error particular: ${JSON.stringify(error)}`,
+                status: 500,
+                data: []
+            };
         }
-    } else {
-        console.log('El error no tiene la propiedad "message"');  
+    } else {  // Si el objeto error no existe
+        console.error('El objeto error no existe, pero algo fallo ');
         return {
-            msg:'El error no tiene la propiedad "message"',
-            status:500,
-            data:[] 
-        }
+            msg: 'El objeto error no existe, pero algo fallo o no?'+ `esta funcion se esta llamando en: ${console.trace()}`,
+            status: 500,
+            data: []
+        };
     }
-}
-module.exports = {errorHandler}
+};
+
+module.exports = errorHandler
 /* como yo queria hacerlo, pero es poco entendible 
 function error(error) {
     error ? (error.message ? console.log(error.message) : console.log('El error no tiene la propiedad "message"')) : console.log('El objeto error no existe');
