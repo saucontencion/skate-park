@@ -20,18 +20,18 @@ async function findAll() {
 
 }
 
-async function findById(id) {
+async function find(params) {
     /* donde iva el id aca ? en el jwt o cuando inicia sesion se le pasaba? */
     try {        
-        const skater = await Skater.findOne({ where: { id } }); 
+        const skater = await Skater.findOne({ where: { paramas } }); 
         if (skater === null) {
             return {
-                msg: `El skater con id ${id} no existe `,
+                msg: `El skater ${params} no existe `,
                 status: 204,
                 datos: []
             }}
         return {
-            msg: `el skater con id ${id} es: `,
+            msg: `el skater ${params} es: `,
             status:200,
             data: [skater.toJSON()]}    
     } catch (error) {
@@ -66,4 +66,4 @@ async function deleteById (id){
     }
 
 }
-module.exports = {insert, findAll, findById, update, deleteById}
+module.exports = {insert, findAll, find, update, deleteById}

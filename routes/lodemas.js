@@ -15,5 +15,6 @@ router.get('/admin', getAdminController );
 
 router.get('/datos', getDatosController);
 router.get('/login', getLoginController);
+router.post('/login', postregistroController);
 
 module.exports = router;
