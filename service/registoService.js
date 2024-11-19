@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 const Skater = require("../models/skater");
 const errorHandler  = require("./error");
 
@@ -52,6 +51,19 @@ async function update(id, fieldsToUpdate) {
     /* ● Luego de iniciar la sesión, los participantes deberán poder modificar sus datos,exceptuando el 
 correo electrónico y su foto. Esta vista debe estar protegida con JWT y los datos que se utilicen en la plantilla deben ser extraídos del token */   
 /* ● La vista del administrador debe mostrar los participantes registrados y permitir aprobarlos para cambiar su estado.*/
+}
+
+async function deleteById (id){
+    try {
+        const removed = await Skater.destroy({where: {id}})
+        return {
+            msg: `el skater con id ${id} se elimino correctamente `,
+            status: 200,
+            data:[`se elimino ${removed} registro`]
+        }
+    } catch (error) {
+        errorHandler(error)
+    }
 
 }
-module.exports = {insert, findAll, findById}
+module.exports = {insert, findAll, findById, update, deleteById}

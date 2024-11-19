@@ -1,3 +1,4 @@
+/* errores 500 */
 function errorHandler(error) {
     if (error) {  // Primero verificamos si el error existe
         if (error.message) {  // Si tiene la propiedad 'message', es un error estándar
@@ -7,12 +8,6 @@ function errorHandler(error) {
                 status: 500,
                 data: []
             };
-        } else if (error.status == 401) {
-            return {
-                msg: error,
-                status: 401,
-                data:[]
-            }
         } else  {  // Si no tiene la propiedad 'message', es un error particular (sin 'message')
             console.error(`log Hubo un error particular en el servidor: ${JSON.stringify(error)}`);
             return {
