@@ -1,9 +1,7 @@
-const {request,response} = require('express')
-const path = require('path');
-const { findById } = require('../service/skater');
+
 
 const getLoginController = (req,res)=>{  
-    res.render('login')
+    res.render('auth/login')
 };
 
 const postLoginController = (req=request ,res=response)=>{
