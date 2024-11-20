@@ -1,5 +1,5 @@
 const Skater = require("../models/skater");
-const errorHandler  = require("./error");
+const errorHandler500  = require("../helpers/errors");
 
 async function insert(nombre,email,password,anos_experiencia, especialidad,estado,foto){
  const skater = await Skater.create({nombre,email,password,anos_experiencia, especialidad,estado,foto})
@@ -15,15 +15,14 @@ async function findAll() {
             status: 200,
             data:[{todesmap, todeslength}]}
     } catch (error) {
-      return errorHandler(error);
+      return errorHandler500(error);
     }
 
 }
 
-async function find(params) {
-    /* donde iva el id aca ? en el jwt o cuando inicia sesion se le pasaba? */
+async function findById(id) {
     try {        
-        const skater = await Skater.findOne({ where: { paramas } }); 
+        const skater = await Skater.findOne({ where: { id } }); 
         if (skater === null) {
             return {
                 msg: `El skater ${params} no existe `,
@@ -35,7 +34,7 @@ async function find(params) {
             status:200,
             data: [skater.toJSON()]}    
     } catch (error) {
-       return errorHandler(error)}
+       return errorHandler500(error)}
 }
 
 async function update(id, fieldsToUpdate) {
@@ -45,7 +44,7 @@ async function update(id, fieldsToUpdate) {
               });
         
       } catch (error) {
-        errorHandler(error)
+        errorHandler500(error)
       }
     
     /* ● Luego de iniciar la sesión, los participantes deberán poder modificar sus datos,exceptuando el 
@@ -62,8 +61,8 @@ async function deleteById (id){
             data:[`se elimino ${removed} registro`]
         }
     } catch (error) {
-        errorHandler(error)
+        errorHandler500(error)
     }
 
 }
-module.exports = {insert, findAll, find, update, deleteById}
+module.exports = {insert, findAll, findById, update, deleteById}

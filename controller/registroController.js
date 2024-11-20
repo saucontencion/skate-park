@@ -1,5 +1,5 @@
 const path = require('path');
-const { insert, findAll } = require("../service/registoService");
+const { insert, findAll } = require("../service/skater");
 const  {v4}  = require('uuid');
 const id = v4();
 

@@ -1,5 +1,5 @@
 /* errores 500 */
-function errorHandler(error) {
+function errorHandler500(error) {
     if (error) {  // Primero verificamos si el error existe
         if (error.message) {  // Si tiene la propiedad 'message', es un error estándar
             console.error(error.message);
@@ -26,7 +26,7 @@ function errorHandler(error) {
     }
 };
 
-module.exports = errorHandler
+module.exports = errorHandler500
 /* como yo queria hacerlo, pero es poco entendible 
 function error(error) {
     error ? (error.message ? console.log(error.message) : console.log('El error no tiene la propiedad "message"')) : console.log('El objeto error no existe');

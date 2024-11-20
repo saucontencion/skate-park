@@ -1,5 +1,8 @@
+const { findAll } = require("../service/skater");
 
 const getAdminController = (req,res)=>{
-    res.render('admin')
+    /* buscar todes */
+    const todes = findAll()
+    res.render('admin',{todes})
 };
 module.exports = {getAdminController}

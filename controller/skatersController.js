@@ -1,4 +1,4 @@
-const  {findAll}  = require("../service/registoService")
+const  {findAll}  = require("../service/skater")
 
 const skatersController = async (req,res)=>{
     const findall = await findAll();

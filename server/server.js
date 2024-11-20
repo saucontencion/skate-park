@@ -24,7 +24,9 @@ class Server {
         }));
     }
     routes() {
-        this.app.use('/', require('../routes/lodemas'));
+        this.app.use('/', require('../routes/participantesRoutes'));
+        this.app.use('/admin', require('../routes/adminRoutes'));
+        this.app.use('/auth', require('../routes/authRoutes'));
     }
     listen(){
         this.app.listen(this.port, ()=>{
