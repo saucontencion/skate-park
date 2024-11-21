@@ -55,12 +55,20 @@
           </div>
         </div>
         <div class="mb-1">
-          <button type="submit" class="btn btn-primary">Actualizar</button>
+          <button type="button" class="btn btn-primary" onclick="submitForm('/update-data')">Actualizar</button>
         </div>
         <div>
-          <button class="btn btn-danger">Eliminar cuenta</button>
+          <button type="button" class="btn btn-danger" onclick="submitForm('/delete-account')" >Eliminar cuenta</button>
         </div>
       </form>
     </div>
+    <script>
+      function submitForm(action) {
+        const form = document.querySelector("form");
+        form.action = action;
+        form.method = 'post';
+        form.submit();
+      }
+    </script>
   </body>
 </html>

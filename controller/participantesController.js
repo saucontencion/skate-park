@@ -1,9 +1,7 @@
-const { findById, update, insert } = require("../service/skater");
+const { findAll,findById, update, insert, deleteById } = require("../service/skater");
 const  {v4}  = require('uuid');
-const { findAll } = require('../service/skater');
 const id = v4();
 const path = require('path');
-
 
 const participantesController = async (req,res)=>{
     const findall = await findAll();
@@ -27,10 +25,14 @@ const postregistroController = async(req,res)=>{
 
 
 const getDatosController = async(req,res)=>{
+    const idp = req.params.id
     /* deberia tomar jwt y el id de algun lado y mostrar la pagina, y tenre botones de actualizar y eliminar*/ 
-    const {data} = await findById(12);// buscar por algo pasar los datos realmente
-    const {id,nombre,email,password,anos_experiencia, especialidad} = data[0];
-    res.render('participantes/datos',{id,nombre,email,password,anos_experiencia, especialidad})
+    const data = await findById(idp);// buscar por algo pasar los datos realmente
+    if(data.status == 200) {
+        const {id,nombre,email,password,anos_experiencia, especialidad} = data.data[0];
+        return res.render('participantes/datos',{id,nombre,email,password,anos_experiencia, especialidad})
+    };
+    return res.json({data})
 };
 
 const updateDatosController = async (req,res) =>{
@@ -40,5 +42,11 @@ const updateDatosController = async (req,res) =>{
     await update(id,data);
     res.redirect('datos')
 }
+const deleteDatosContrller = async(req,res) =>{
+    const {id} = req.body;
+    const elimiado = await deleteById(id)    
+    res.json(elimiado)
 
-module.exports = {participantesController,getregistroController,postregistroController,getDatosController,updateDatosController}
+}
+
+module.exports = {participantesController,getregistroController,postregistroController,getDatosController,updateDatosController, deleteDatosContrller}

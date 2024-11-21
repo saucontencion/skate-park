@@ -27,7 +27,7 @@ async function findById(id) {
             return {
                 msg: `El skater ${id} no existe `,
                 status: 204,
-                datos: []
+                data: []
             }}
         return {
             msg: `el skater ${id} es: `,
