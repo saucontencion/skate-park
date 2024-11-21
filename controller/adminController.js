@@ -1,5 +1,5 @@
 const { Json } = require("sequelize/lib/utils");
-const { findAll } = require("../service/skater");
+const { findAll, update } = require("../service/skater");
 
 const getAdminController = async(req,res)=>{
     /* buscar todes */
@@ -12,9 +12,16 @@ const getAdminController = async(req,res)=>{
 };
 
 const updateAdminController = async(req,res)=>{
-    const body = req.body
-    console.log(JSON.stringify(body,null,2));
+    const body = req.body;
+    for (const [id, estado] of Object.entries(body)) {
+        const fieldsToUpdate = {
+          estado: estado === "true", // Convertir "true"/"false" a booleano
+        };
+      
+    const updateAdmin =await update(id,fieldsToUpdate)
+    console.log(updateAdmin);
+    };
     
-    res.json(body)
+    res.json({msg:'pudo haber sido mas sencillo, si fuera estructurado'})
 }
 module.exports = {getAdminController,updateAdminController }

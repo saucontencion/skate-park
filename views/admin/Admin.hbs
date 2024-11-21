@@ -29,11 +29,11 @@
             <td><input type="checkbox" data-id={{id}} name="" {{#if estado}}checked{{/if}} /></td>
           </tr>
           {{/each}}
-          <form style="display: none;" method="post" action="update">
-            <button type="submit">guardar cambios</button>
-          </form>
         </tbody>
       </table>
+          <form  method="post" action="admin/update">
+            <button type="submit">guardar cambios</button>
+          </form>
     </div>
     <script>
        const listcheckbox = [];
@@ -53,13 +53,21 @@
             if (index > -1) {
               listcheckbox[index].estado = estado; // Si ya existe, actualizamos el estado
               formData.set(id,estado);
-
             } else {
               listcheckbox.push({ id, estado }); // Si no existe, lo añadimos
               formData.append(id,estado);
             }
-            console.dir(form)
           });
+        });
+        
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+         fetch(form.action, {
+          method: form.method || "POST",
+          body: formData,
+        }).then(response => response.json())
+          .then(data => { console.log("Enviado:", data);})
+          .catch(error => {console.error("Error:", error);})
         });
     </script>
   </body>
