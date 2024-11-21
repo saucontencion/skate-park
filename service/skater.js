@@ -25,12 +25,12 @@ async function findById(id) {
         const skater = await Skater.findOne({ where: { id } }); 
         if (skater === null) {
             return {
-                msg: `El skater ${params} no existe `,
+                msg: `El skater ${id} no existe `,
                 status: 204,
                 datos: []
             }}
         return {
-            msg: `el skater ${params} es: `,
+            msg: `el skater ${id} es: `,
             status:200,
             data: [skater.toJSON()]}    
     } catch (error) {
@@ -38,10 +38,15 @@ async function findById(id) {
 }
 
 async function update(id, fieldsToUpdate) {
-      try {
+      try {            
             const skater = await Skater.update(fieldsToUpdate, {
                 where: { id }
               });
+              return{
+                msg:'data actualizada',
+                status:200,
+                data:skater
+              }
         
       } catch (error) {
         errorHandler500(error)

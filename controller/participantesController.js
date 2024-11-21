@@ -1,4 +1,4 @@
-const { find, update, insert } = require("../service/skater");
+const { findById, update, insert } = require("../service/skater");
 const  {v4}  = require('uuid');
 const { findAll } = require('../service/skater');
 const id = v4();
@@ -28,16 +28,16 @@ const postregistroController = async(req,res)=>{
 
 const getDatosController = async(req,res)=>{
     /* deberia tomar jwt y el id de algun lado y mostrar la pagina, y tenre botones de actualizar y eliminar*/ 
-    const skater = await find(12);// buscar por algo
-    res.render('participantes/datos',{skater})
+    const {data} = await findById(12);// buscar por algo pasar los datos realmente
+    const {id,nombre,email,password,anos_experiencia, especialidad} = data[0];
+    res.render('participantes/datos',{id,nombre,email,password,anos_experiencia, especialidad})
 };
 
 const updateDatosController = async (req,res) =>{
     //const {nombre,email,password,anos_experiencia, especialidad} = req.body;
-    //id nose de donde lo saco
-    const body =req.body
-    const actualizado= await update(12, body);
-    console.log(actualizado)
+    //id fuente datos id
+    const {id,...data} =req.body
+    await update(id,data);
     res.redirect('datos')
 }
 
