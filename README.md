@@ -15,3 +15,4 @@ colocar los name en los input en el form. verificar la creacion
 ### **El enfoque de programación por capas es un patrón arquitectónico que organiza la aplicación en diferentes niveles o capas de abstracción, cada una con responsabilidades específicas y claras. Cada capa tiene una responsabilidad bien definida y interactúa con las capas adyacentes para ofrecer la funcionalidad global del sistema. Esto mejora la mantenibilidad, la escalabilidad y la separación de responsabilidades. **
 []el id
 []darle el dinamismo a todas las vistas completar controller realmente
+[]leer como funciona formdata y sus parametro
