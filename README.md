@@ -7,12 +7,12 @@ colocar los name en los input en el form. verificar la creacion
 [x] add info base a la database y foto la direccion a la img
 [x] registrarme y e iniciar sesion colocar direccionamiento
 [x] pasar registro a hbs, esta ya todo funcionando
+[x] encriptar contraseña en participantes
+[] crear el modelo rol, y en postgre agregar rol participante y admin 
+[] aplicar express validator
+[] crear los cheks
+[] aplicar jwt
 
- **estoy desordenandome con las capas futuras, y las comprobaciones**
 
 ## yendo a por capaz
-
 ### **El enfoque de programación por capas es un patrón arquitectónico que organiza la aplicación en diferentes niveles o capas de abstracción, cada una con responsabilidades específicas y claras. Cada capa tiene una responsabilidad bien definida y interactúa con las capas adyacentes para ofrecer la funcionalidad global del sistema. Esto mejora la mantenibilidad, la escalabilidad y la separación de responsabilidades. **
-[]el id
-[]darle el dinamismo a todas las vistas completar controller realmente
-[]leer como funciona formdata y sus parametro

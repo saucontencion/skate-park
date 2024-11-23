@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
-const sequelize = require("../connection/connection");  // Assuming you have this Sequelize connection
+const sequelize = require("../connection/connection"); 
+const Rol = require("./rol");
 
 const Skater = sequelize.define(
   'skater',
@@ -37,11 +38,17 @@ const Skater = sequelize.define(
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
+    rol: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    }
   }, {
 /*     tableName: 'skaters',
  */    timestamps: false
-}
-);
+});
+
+Rol.hasHook(Skater,{foreignKey:'rol'})
+Skater.belongsTo(Rol,{foreignKey:'rol'});
 
 module.exports = Skater;
-/* Skater.sync() */
+Skater.sync()

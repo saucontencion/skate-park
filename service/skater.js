@@ -1,8 +1,12 @@
+const bycryptjs = require('bcryptjs');
 const Skater = require("../models/skater");
 const errorHandler500  = require("../helpers/errors");
 
-async function insert(nombre,email,password,anos_experiencia, especialidad,estado,foto){
- const skater = await Skater.create({nombre,email,password,anos_experiencia, especialidad,estado,foto})
+async function insert(nombre,email,passwordfront,anos_experiencia, especialidad,estado,foto){
+    // encriptar la contraseña
+    const salt = bycryptjs.genSaltSync();
+    const password = bycryptjs.hashSync(passwordfront, salt);
+    const skater = await Skater.create({nombre,email,password,anos_experiencia, especialidad,estado,foto,rol:2})
 
 }
 
