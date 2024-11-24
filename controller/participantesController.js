@@ -17,7 +17,7 @@ const getregistroController = async(req,res)=>{
 const postregistroController = async(req,res)=>{
     const fotofile  = req.files.nameFoto;
     fotofile.mv(`${path.join(__dirname,`../public/img/imagen_${id}.jpg`)}`, (err) => {  if (err) {console.log(err);res.redirect('/registro.html')}}); const fotoRuta = `img/imagen_${id}.jpg`
-    const estado = 'false';// los admin arpueban su estado
+    const estado = 'true';// los admin arpueban su estado
     const {nombre,email,password,anos_experiencia, especialidad} = req.body;
     await insert(nombre,email,password,parseInt(anos_experiencia), especialidad,estado, fotoRuta);
     res.redirect('/');

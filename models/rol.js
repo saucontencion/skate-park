@@ -16,4 +16,3 @@ const Rol = sequelize.define('Rol', {
 });
 
 module.exports = Rol;
-Rol.sync();

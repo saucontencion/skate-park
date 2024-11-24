@@ -8,7 +8,7 @@ colocar los name en los input en el form. verificar la creacion
 [x] registrarme y e iniciar sesion colocar direccionamiento
 [x] pasar registro a hbs, esta ya todo funcionando
 [x] encriptar contraseña en participantes
-[] crear el modelo rol, y en postgre agregar rol participante y admin 
+[x] crear el modelo rol, y en postgre agregar rol participante y admin 
 [] aplicar express validator
 [] crear los cheks
 [] aplicar jwt

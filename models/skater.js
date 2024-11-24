@@ -51,4 +51,3 @@ Rol.hasHook(Skater,{foreignKey:'rol'})
 Skater.belongsTo(Rol,{foreignKey:'rol'});
 
 module.exports = Skater;
-Skater.sync()

@@ -31,4 +31,3 @@ const Admin = sequelize.define('Admin', {
 Rol.hasMany(Admin,{foreignKey:'rol'});
 Admin.belongsTo(Rol,{foreignKey:'rol'})
 module.exports = Admin;
-Admin.sync()
