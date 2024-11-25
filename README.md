@@ -15,6 +15,7 @@ _[]continuar colocando validator a quienes corresponda, aunque no me lo piden
 || next() [x]
 [] aplicar jwt
 se esta buscando admin o skater por id, pueden un admin y skater tener el mismo id, tengo que solucionar esto darle atomicidad
-
+[]enviar cookie-parser, para el manejo del jwt desde el cliente, administrado por el servidor
+[]cookie-parser para administrar ls cookier
 ## yendo a por capaz
 ### **El enfoque de programación por capas es un patrón arquitectónico que organiza la aplicación en diferentes niveles o capas de abstracción, cada una con responsabilidades específicas y claras. Cada capa tiene una responsabilidad bien definida y interactúa con las capas adyacentes para ofrecer la funcionalidad global del sistema. Esto mejora la mantenibilidad, la escalabilidad y la separación de responsabilidades. **

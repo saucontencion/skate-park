@@ -25,6 +25,9 @@ const postregistroController = async(req,res)=>{
 
 
 const getDatosController = async(req,res)=>{
+    req.cookies?console.log(req.cookies):console.log('no hay req.cookies');
+    ;
+    
     const idp = req.params.id
     /* deberia tomar jwt y el id de algun lado y mostrar la pagina, y tenre botones de actualizar y eliminar*/ 
     const data = await findById(idp);// buscar por algo pasar los datos realmente

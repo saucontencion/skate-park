@@ -3,6 +3,7 @@ const { generarJWT } = require("../helpers/generar-jwt");
 const Admin = require("../models/admin");
 const Skater = require("../models/skater");
 const bcryptjs = require('bcryptjs');
+const Rol = require('../models/rol')
 
 const login = async(email,password)=>{
     try {
@@ -21,13 +22,31 @@ const login = async(email,password)=>{
         const token = await generarJWT(usuario.id, usuario.rol);
         return {
             msg: 'Usuario autenticado',
-            datos: [],
+            datos: [usuario.id],
             token
         }
     } catch (error) {
         return errorHandler500(error)
     }
+};
+const buscarRol = async(rolid)=>{
+    if (rolid == 1) {
+        const rolString = await Admin.findOne({where:{rol:rolid}, include: Rol});
+        const roltoJSON= await rolString.toJSON();
+        return {
+            msg:'buscar el rol con eager load',
+            status:200,
+            data:[roltoJSON.Rol.role],   
+    }}
+    if (rolid==2) {
+        const rolString = await Skater.findOne({where:{rol:rolid}, include: Rol});
+        const roltoJSON= await rolString.toJSON();
+        return {
+            msg:'buscar el rol con eager load',
+            status:200,
+            data:[roltoJSON.Rol.role],  
+        }
+    }
+};
 
-}
-
-module.exports = {login}
+module.exports = {login,buscarRol}
