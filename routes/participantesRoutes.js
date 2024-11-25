@@ -4,6 +4,8 @@ const { participantesController, getregistroController, postregistroController, 
 const { validatorCampos } = require('../middlewares/validar-campos');
 const { validarRolExiste } = require('../helpers/validator-bd');
 const validatorFiles = require('../middlewares/validar-files');
+const { validatorToken } = require('../middlewares/validar-jwt');
+const { validarRol } = require('../middlewares/validar-roles-jwt');
 
 
 const router = Router();
@@ -21,7 +23,7 @@ router.post('/registro', [check('nombre', 'El nombre de usuario es obligatorio')
     validatorFiles,
     postregistroController );
 
-router.get('/datos/:id', getDatosController);
+router.get('/datos/:id',validatorToken,validarRol('ROLE_PARTICIPANTE'), getDatosController);
 router.post('/update-data', updateDatosController);
 router.post('/delete-account', deleteDatosContrller);
 

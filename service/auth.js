@@ -21,6 +21,7 @@ const login = async(email,password)=>{
         return {
             msg: 'Usuario autenticado',
             datos: [],
+            token
         }
     } catch (error) {
         return errorHandler500(error)
