@@ -11,8 +11,13 @@ const validatorToken = async (req = request, res = response, next) => {
     }
     // validar el token (que no ha expirado, que no ha sido manipulado)
     try {
-        const { uid } = jwt.verify(token, process.env.SECRETKEY);
-        const cuenta = await Usuario.findOne({ where: { id: uid } })|| await Skater.findOne({where:{id:uid}});
+        let cuenta;
+        const { uid,rol } = jwt.verify(token, process.env.SECRETKEY);
+        if (rol==1) {
+            cuenta = await Admin.findOne({ where: { id: uid } })
+        }else {
+            cuenta = await Skater.findOne({where:{id:uid}});
+        }
         req.cuenta = cuenta.toJSON();
         req.rol= cuenta.rol
         next();

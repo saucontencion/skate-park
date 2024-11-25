@@ -6,7 +6,7 @@ const validarRol =(...rolespermitidos) =>{
             return res.status(401).json({msg: 'Estas de baja'});
         }
         if(!rolespermitidos.includes(req.rol)){
-            return res.status(401).json({msg: 'Error, no eres administrador'});
+            return res.status(401).json({msg: 'Error, no tienes el rol requerido'});
         }
         next();
     }
