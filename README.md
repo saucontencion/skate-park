@@ -10,7 +10,9 @@ colocar los name en los input en el form. verificar la creacion
 [x] encriptar contraseña en participantes
 [x] crear el modelo rol, y en postgre agregar rol participante y admin 
 [] aplicar express validator
-[] crear los cheks
+_[x] crear los cheks
+_[]continuar colocando validator a quienes corresponda, aunque no me lo piden 
+|| next() [x]
 [] aplicar jwt
 
 

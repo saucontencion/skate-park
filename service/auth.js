@@ -1,18 +1,27 @@
-const errorHandler500 = require("../helpers/errors")
-const Skater = require("../models/skater")
+const errorHandler500 = require("../helpers/errors");
+const { generarJWT } = require("../helpers/generar-jwt");
+const Skater = require("../models/skater");
+const bcryptjs = require('bcryptjs');
 
 const login = async(email,password)=>{
     try {
-        let usuario = await Skater.findOne({where:{email}})
+        var usuario = await Skater.findOne({where:{email}})
         if (!usuario) {
             throw new Error(`usuario con email:${email} no existe`)        
         }
         /* puedo agregar ,validar estado, validar clave, generar jwt  */
         usuario = usuario.toJSON()
-        if (usuario.password == password) {
-           return ` usario logeado correctamente` 
+        //validar clave con bycryptjs compareSync
+        const validaClave = bcryptjs.compareSync(password, usuario.password);
+        if(!validaClave){
+            throw new Error('error clave incorrecta')
         }
-        
+        //construir el JWT
+        const token = await generarJWT(usuario.id);
+        return {
+            msg: 'Usuario autenticado',
+            datos: [],
+        }
     } catch (error) {
         return errorHandler500(error)
     }

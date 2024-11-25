@@ -3,7 +3,7 @@ const express = require('express');
 const expressFileUpload = require('express-fileupload');
 const hbs = require('hbs');
 const path = require('path');
-
+require('dotenv').config()
 class Server {
     constructor(){
         this.app = express();
